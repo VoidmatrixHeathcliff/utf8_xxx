@@ -1,6 +1,8 @@
 #ifndef _UTF8_XXX_H_
 #define _UTF8_XXX_H_
 
+#include <string>
+
 inline size_t utf8_len(const std::string& _Str);
 
 std::string utf8_sub(const std::string& _Str, const size_t _Off, const size_t _Count = std::string::npos);
