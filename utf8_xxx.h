@@ -3,7 +3,13 @@
 
 #include <string>
 
-inline size_t utf8_len(const std::string& _Str);
+size_t utf8_len(const std::string& _Str)
+{
+	size_t _idx = 0, _len = 0;
+	while (_Str[_idx]) 
+		_len += ((_Str[_idx++] & 0xc0) != 0x80);
+	return _len;
+}
 
 std::string utf8_sub(const std::string& _Str, const size_t _Off, const size_t _Count = std::string::npos);
 
@@ -14,14 +20,6 @@ size_t utf8_rfind(const std::string& _Str, const std::string& _Dst, const size_t
 std::string& utf8_insert(std::string& _Str, const size_t _Off, const std::string& _Ins);
 
 #ifdef _UTF8_XXX_IMPLEMENTATION
-
-size_t utf8_len(const std::string& _Str)
-{
-	size_t _idx = 0, _len = 0;
-	while (_Str[_idx]) 
-		_len += ((_Str[_idx++] & 0xc0) != 0x80);
-	return _len;
-}
 
 std::string utf8_sub(const std::string& _Str, const size_t _Off, size_t _Count)
 {
