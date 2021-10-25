@@ -76,4 +76,4 @@ std::string& utf8_insert(std::string& _Str, const size_t _Off, const std::string
 
 #endif  // _UTF8_XXX_IMPLEMENTATION
 
-#endif  // !s_UTF8_XXX_H_
+#endif  // !_UTF8_XXX_H_
