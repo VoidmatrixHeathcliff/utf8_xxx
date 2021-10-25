@@ -3,7 +3,7 @@
 
 #include <string>
 
-size_t utf8_len(const std::string& _Str)
+inline size_t utf8_len(const std::string& _Str)
 {
 	size_t _idx = 0, _len = 0;
 	while (_Str[_idx]) 
