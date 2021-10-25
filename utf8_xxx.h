@@ -26,6 +26,8 @@ std::string utf8_sub(const std::string& _Str, const size_t _Off, size_t _Count)
 	size_t _idx_utf8 = 0, _idx_begin_raw = 0;
 	while (_idx_utf8 < _Off && _Str[_idx_begin_raw])
 		_idx_utf8 += ((_Str[_idx_begin_raw++] & 0xc0) != 0x80);
+	while ((_Str[_idx_begin_raw] & 0xc0) == 0x80 && _Str[_idx_begin_raw])
+		_idx_begin_raw++;
 	if (_Count == std::string::npos)
 		return _Str.substr(_idx_begin_raw);
 	size_t _idx_end_raw = _idx_begin_raw;
